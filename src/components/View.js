@@ -1,4 +1,5 @@
 var React = require('react');
+var PropTypes = require('prop-types');
 var api = require('./../utils/api');
 var Link = require('react-router-dom').Link;
 
@@ -21,7 +22,6 @@ class View extends React.Component{
     var id = this.props.location.params;
     api.movieView(id)
       .then(function(res){
-        console.log(res)
         this.setState(function(){
           return {
             title: res.data.title,
@@ -37,7 +37,10 @@ class View extends React.Component{
   reset(){
     this.setState({
       title: null,
-      summary: null
+      summary: null,
+      poster_path: null,
+      vote_average: null,
+      vote_count: null
     })
   }
 
@@ -54,7 +57,7 @@ class View extends React.Component{
         </div>
 
         <div className="container has-text-centered the-grid">
-          <img src={'https://image.tmdb.org/t/p/w185/' +this.state.poster_path} alt={this.state.title}/>
+          <img className="poster-shadow" src={'https://image.tmdb.org/t/p/w185/' +this.state.poster_path} alt={this.state.title}/>
           <div className="card">
             <h1 className="title">{this.state.title}</h1>
             <label className="label">Overview:</label>
@@ -69,6 +72,13 @@ class View extends React.Component{
       </section>
     )
   }
+}
+
+View.propTypes = {
+  title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  vote_average: PropTypes.string.isRequired,
+  vote_count: PropTypes.string.isRequired
 }
 
 module.exports = View;

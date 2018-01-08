@@ -24,13 +24,13 @@ class Search extends React.Component{
           </div>
         </form>
       </section>
-
     )
   }
 }
 
 Search.propTypes = {
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired
 }
 
 export default Search;

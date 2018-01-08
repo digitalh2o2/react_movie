@@ -1,28 +1,8 @@
-.site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column; }
-
-.site-content {
-  flex: 1; }
-
-.movie-title {
-  margin: 20px;
-  text-align: center; }
-
-.input-field {
-  display: flex;
-  justify-content: center; }
-
-.active {
-  font-weight: bold; }
-
-.the-grid {
-  padding-top: 50px; }
-
-img {
-  border-radius: 5%; }
-
+/*
+  ====================
+  Main Page
+  ====================
+*/
 #root .results {
   display: flex;
   justify-content: center; }
@@ -37,6 +17,49 @@ img {
 #root .break a {
   cursor: default; }
 
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+.site-content {
+  flex: 1; }
+
+.input-field {
+  display: flex;
+  justify-content: center; }
+
+/*
+  ====================
+  Images
+  ====================
+*/
+img {
+  border-radius: 5%; }
+
+.poster-shadow {
+  box-shadow: 5px 2px 3px; }
+
+/*
+  ====================
+  Images
+  ====================
+*/
+.movie-title {
+  margin: 20px;
+  text-align: center; }
+
+.active {
+  font-weight: bold; }
+
+.the-grid {
+  padding-top: 50px; }
+
+/*
+  ====================
+  Footer
+  ====================
+*/
 .footer {
   margin-top: auto;
   height: 40px; }

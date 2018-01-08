@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Home from './Home';
 import Movie from './Movie';
 import View from './View';
-import Search from './Search';
-import MovieGrid from './MovieGrid';
 import About from './About';
 import Nav from './Nav';
 import './../App.css';

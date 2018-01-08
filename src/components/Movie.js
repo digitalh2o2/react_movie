@@ -4,12 +4,10 @@ import Search from './Search';
 import MovieGrid from './MovieGrid';
 import './../App.css';
 import api from './../utils/api';
-var ReactRouter = require('react-router-dom');
-var Router = ReactRouter.BrowserRouter;
-var Route = ReactRouter.Route;
+var PropTypes = require('prop-types');
 
-const DEFAULT_SEARCH = 'Coco'
-let page = 1
+const DEFAULT_SEARCH = 'Coco';
+let page = 1;
 
 class App extends Component {
   constructor(props){
@@ -42,7 +40,6 @@ class App extends Component {
 
     api.fetchMovies(this.state.searchTerm, page = 1)
       .then(function(res){
-        console.log(res)
         this.setState(function() {
           return {
             movies: res,
@@ -55,9 +52,9 @@ class App extends Component {
 
   loadMore(data){
     let selected = data.selected + 1;
-    let offset = Math.ceil(selected * this.props.perPage)
     api.fetchMovies(this.state.searchTerm, selected)
       .then(function(res){
+        console.log(res)
         this.setState(function() {
           return {
             movies: res
@@ -86,6 +83,7 @@ class App extends Component {
             </section>
 
             :
+
             <section className="site-content">
               <div>
                 <MovieGrid
@@ -111,6 +109,15 @@ class App extends Component {
       </section>
     );
   }
+}
+
+App.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  movies: PropTypes.object.isRequired,
+  pageCount: PropTypes.number.isRequired,
+  loadMore: PropTypes.func.isRequired
 }
 
 export default App;
